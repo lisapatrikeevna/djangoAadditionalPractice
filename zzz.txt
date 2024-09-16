@@ -1,0 +1,29 @@
+Создайте Django проект и добавьте новое приложение library.
+В этом приложении создайте модель Author со следующими полями:
+Имя: макс. длина 100
+Фамилия: макс. длина 100
+Дата рождения
+Зарегистрируйте эту модель для Административной панели, примените изменения и убедитесь, что всё работает корректно.
+.venv\Scripts\activate
+pip install django
+django-admin startproject config .
+brew services start mysql
+  python manage.py startapp firstApp  -created new app
+   admin.site.register(Author)
+   python manage.py makemigrations
+   python  manage.py createsuperuser
+
+
+Обновите уже существующую модель Author дополнительными полями:
+Профиль: ссылка на личную страницу автора, может быть не указана
+Удалён: поле, которое позволит смотреть удалён ли этот автор из базы всех авторов.
+По умолчанию все авторы активны
+Рейтинг: позволит отсматривать рейтинг популярности авторов, от 1 до 10
+
+from django.core.validators import MinValueValidator, MaxValueValidator
+
+
+
+
+
+
