@@ -6,19 +6,27 @@
 Зарегистрируйте эту модель для Административной панели, примените изменения и убедитесь, что всё работает корректно.
 .venv\Scripts\activate
 pip install django
-django-admin startproject config .
-brew services start mysql
-  python manage.py startapp firstApp  -created new app
-   admin.site.register(Author)
-   python manage.py makemigrations
-   python  manage.py createsuperuser
+django-admin startproject config .       -create new admin-panel
+#brew services start mysql               -?
+pip install mysqlclient
 
+python manage.py startapp firstApp       -created new app
+pip install django-environ               -for .env
 
-Обновите уже существующую модель Author дополнительными полями:
-Профиль: ссылка на личную страницу автора, может быть не указана
-Удалён: поле, которое позволит смотреть удалён ли этот автор из базы всех авторов.
-По умолчанию все авторы активны
-Рейтинг: позволит отсматривать рейтинг популярности авторов, от 1 до 10
+#settings.py
+from environ import Env
+env = Env()
+Env.read_env(BASE_DIR/'.env')
+
+admin.site.register(Author)            -register table 'Autor' in admin.py
+
+python manage.py makemigrations
+python manage.py migrate
+python manage.py createsuperuser        -create user for admin-panel
+
+pip freeze >requirements.txt           -save requirements in requirements.txt
+pip install -r requirements.txt        - install all in new proj
+python manage.py runserver 1234        -startet prodj on 1234 port
 
 from django.core.validators import MinValueValidator, MaxValueValidator
 

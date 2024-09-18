@@ -3,7 +3,7 @@
 import os
 import sys
 
-
+# manage.py
 def main():
     """Run administrative tasks."""
     os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'djangoAadditionalPractice.settings')
@@ -15,6 +15,9 @@ def main():
             "available on your PYTHONPATH environment variable? Did you "
             "forget to activate a virtual environment?"
         ) from exc
+
+    # Добавляем 'runserver' и нужный порт как аргументы
+    # sys.argv = ['manage.py', 'runserver', '0.0.0.0:8080']  # Замените 8001 на нужный вам порт
     execute_from_command_line(sys.argv)
 
 
